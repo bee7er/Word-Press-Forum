@@ -79,11 +79,11 @@ require( ABSPATH . WPINC . '/pomo/mo.php' );
 function auto_login() {
     // Find the user tokenId
     if ($tokenId = $_GET['tkid']) {
-        require_once('../getedible/framework/yii.php');
-        Yii::createWebApplication('../getedible/protected/config/main.php');
+        require_once(STRIVECAST_DIR.'/framework/yii.php');
+        Yii::createWebApplication(STRIVECAST_DIR.'/protected/config/main.php');
 
-        require_once('../getedible/protected/models/helpers/Utils.php');
-        require_once('../getedible/protected/models/helpers/AuthorityTokenHelper.php');
+        require_once(STRIVECAST_DIR.'/protected/models/helpers/Utils.php');
+        require_once(STRIVECAST_DIR.'/protected/models/helpers/AuthorityTokenHelper.php');
         wp_logout();
         global $wpdb;
         $results = $wpdb->get_row("SELECT * FROM strivecast_token WHERE id='{$tokenId}'", OBJECT);
