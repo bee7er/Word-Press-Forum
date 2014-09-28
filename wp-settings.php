@@ -84,7 +84,7 @@ function auto_login() {
 
         require_once(STRIVECAST_DIR.'/protected/models/helpers/Utils.php');
         require_once(STRIVECAST_DIR.'/protected/models/helpers/AuthorityTokenHelper.php');
-        wp_logout();
+
         global $wpdb;
         $results = $wpdb->get_row("SELECT * FROM strivecast_token WHERE id='{$tokenId}'", OBJECT);
         $authorityTokenHelper = new AuthorityTokenHelper();
@@ -109,6 +109,9 @@ function auto_login() {
             if (get_class($result)=='WP_Error') {
                 die('Failed to add new forum user');
             }
+        }
+        if (is_user_logged_in()) {
+            die('User still not logged in!');
         }
     }
 }
