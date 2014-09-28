@@ -110,7 +110,7 @@ function auto_login() {
                 die('Failed to add new forum user');
             }
         }
-        if (is_user_logged_in()) {
+        if ( ! is_user_logged_in()) {
             die('User still not logged in!');
         }
     }
