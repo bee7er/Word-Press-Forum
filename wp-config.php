@@ -14,27 +14,45 @@
  * @package WordPress
  */
 
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define('DB_NAME', 'strivecast_forum');
-
-/** MySQL database username */
-define('DB_USER', 'briane');
-
-/** MySQL database password */
-define('DB_PASSWORD', '8eeter');
-
-/** MySQL hostname */
-define('DB_HOST', 'localhost');
-
-/** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
-
-/** The Database Collate type. Don't change this if in doubt. */
-define('DB_COLLATE', '');
-
-// BEE Change: Added locatio of strivecast
-define('STRIVECAST_DIR', '/home/strivecast/var/stage/stage.strivecast.com');
+$db_config = $adminBaseUrl = $db_forum_config = $forumUrl = null;
+define("ENV_DEV", "DEV");
+define("ENV_STAGE", "STAGE");
+define("ENV_LIVE", "LIVE");
+if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] == 'localhost') {
+    define("ENVIRONMENT", ENV_DEV);
+    /** The name of the database for WordPress */
+    define('DB_NAME', 'strivecast_forum');
+    /** MySQL database username */
+    define('DB_USER', 'briane');
+    /** MySQL database password */
+    define('DB_PASSWORD', '8eeter');
+    /** MySQL hostname */
+    define('DB_HOST', 'localhost');
+    /** Database Charset to use in creating database tables. */
+    define('DB_CHARSET', 'utf8');
+    /** The Database Collate type. Don't change this if in doubt. */
+    define('DB_COLLATE', '');
+    // BEE Change: Added location of strivecast
+    define('STRIVECAST_DIR', 'c:/xampp/htdocs/getedible');
+} elseif (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] == 'stage.forum.strivecast.com') {
+    define("ENVIRONMENT", ENV_STAGE);
+    define('DB_NAME', 'stage_strivecast_forum');
+    define('DB_USER', 'stage_strivecast');
+    define('DB_PASSWORD', 'strive74cast06');
+    define('DB_HOST', 'localhost');
+    define('DB_CHARSET', 'utf8');
+    define('DB_COLLATE', '');
+    define('STRIVECAST_DIR', '/home/strivecast/var/stage/stage.strivecast.com');
+} else {
+    define("ENVIRONMENT", ENV_LIVE);
+    define('DB_NAME', 'strivecast_forum');
+    define('DB_USER', 'strivecast');
+    define('DB_PASSWORD', 'strive74cast06');
+    define('DB_HOST', 'localhost');
+    define('DB_CHARSET', 'utf8');
+    define('DB_COLLATE', '');
+    define('STRIVECAST_DIR', '/home/strivecast/var/www/strivecast.com');
+}
 
 /**#@+
  * Authentication Unique Keys and Salts.
