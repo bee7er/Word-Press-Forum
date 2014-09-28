@@ -19,7 +19,7 @@
 			<li class="bbp-topic-title"><?php _e( 'Topic', 'bbpress' ); ?></li>
 			<li class="bbp-topic-voice-count"><?php _e( 'Voices', 'bbpress' ); ?></li>
 			<li class="bbp-topic-reply-count"><?php bbp_show_lead_topic() ? _e( 'Replies', 'bbpress' ) : _e( 'Posts', 'bbpress' ); ?></li>
-			<li class="bbp-topic-freshness"><?php _e( 'Freshness', 'bbpress' ); ?></li>
+<!-- BEE Change: Do not know what this title is for.		<li class="bbp-topic-freshness">--><?php //_e( 'Freshness', 'bbpress' ); ?><!--</li>-->
 		</ul>
 
 	</li>

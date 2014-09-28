@@ -1106,7 +1106,7 @@ function bbp_user_subscribe_link( $args = '', $user_id = 0, $wrap = true ) {
 
 			// Initial output is wrapped in a span, ajax output is hooked to this
 			if ( !empty( $wrap ) ) {
-				$html = '<span id="subscription-toggle">' . $html . '</span>';
+				$html = '<span id="subscription-toggle" style="float:right;">' . $html . '</span><div style="clear:both;"></div>';
 			}
 
 		} else {

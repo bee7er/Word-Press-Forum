@@ -19,7 +19,8 @@
 			<li class="bbp-forum-info"><?php _e( 'Forum', 'bbpress' ); ?></li>
 			<li class="bbp-forum-topic-count"><?php _e( 'Topics', 'bbpress' ); ?></li>
 			<li class="bbp-forum-reply-count"><?php bbp_show_lead_topic() ? _e( 'Replies', 'bbpress' ) : _e( 'Posts', 'bbpress' ); ?></li>
-			<li class="bbp-forum-freshness"><?php _e( 'Freshness', 'bbpress' ); ?></li>
+
+<!-- BEE Change: Do not know what this title is for.		<li class="bbp-forum-freshness">--><?php //_e( 'Freshness', 'bbpress' ); ?><!--</li>-->
 		</ul>
 
 	</li><!-- .bbp-header -->

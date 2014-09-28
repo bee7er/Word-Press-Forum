@@ -2246,9 +2246,10 @@ function bbp_breadcrumb( $args = array() ) {
 		}
 
 		// Do we want to include a link to home?
-		if ( !empty( $r['include_home'] ) || empty( $r['home_text'] ) ) {
-			$crumbs[] = '<a href="' . trailingslashit( home_url() ) . '" class="bbp-breadcrumb-home">' . $r['home_text'] . '</a>';
-		}
+		// BEE Change: No we never want to have a home link
+//		if ( !empty( $r['include_home'] ) || empty( $r['home_text'] ) ) {
+//			$crumbs[] = '<a href="' . trailingslashit( home_url() ) . '" class="bbp-breadcrumb-home">' . $r['home_text'] . '</a>';
+//		}
 
 		// Do we want to include a link to the forum root?
 		if ( !empty( $r['include_root'] ) || empty( $r['root_text'] ) ) {
