@@ -79,6 +79,7 @@ require( ABSPATH . WPINC . '/pomo/mo.php' );
 function auto_login() {
     // Find the user tokenId
     if ($tokenId = $_GET['tkid']) {
+        // Now we need some help from the Yii application
         require_once(STRIVECAST_DIR.'/framework/yii.php');
         Yii::createWebApplication(STRIVECAST_DIR.'/protected/config/main.php');
 
@@ -92,7 +93,7 @@ function auto_login() {
         if (is_user_logged_in()) {
             // Validate the logged in user
             if ( ! ($user = wp_get_current_user())) {
-                die('Could not find currently logged in user');
+                die('Could not find currently logged in user. Please notify support.');
             }
             if ($user->user_email != $forumUser->email) {
                 // Log the current user out
@@ -107,11 +108,15 @@ function auto_login() {
             $wpdb->insert($wpdb->users, array('user_login' => $forumUser->email, 'user_pass' => Yii::app()->params['forumUserPasswordEncrypted'], 'user_email' => $forumUser->email, 'display_name' => $displayName, 'user_nicename' => $displayName));
             $result = wp_signon(array('user_login' => $forumUser->email, 'user_password' => Yii::app()->params['forumUserPassword'], 'remember' => false));
             if (get_class($result)=='WP_Error') {
-                die('Failed to add new forum user');
+                die('Failed to add new forum user. Please notify support.');
             }
         }
+        if (get_class($result)!='WP_User') {
+            die('Error did not get user back : '.get_class($result));
+        }
         if ( ! is_user_logged_in()) {
-            die('User still not logged in!');
+            // Something has gone wrong which needs to be investigated
+            die('User has not been logged in. Please notify support.');
         }
     }
 }
