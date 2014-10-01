@@ -80,7 +80,7 @@ function wp_signon( $credentials = array(), $secure_cookie = '' ) {
 
 	$user = wp_authenticate($credentials['user_login'], $credentials['user_password']);
 
-	if ( is_wp_error($user) ) {die('Dying here 1');
+	if ( is_wp_error($user) ) {
 		if ( $user->get_error_codes() == array('empty_username', 'empty_password') ) {
 			$user = new WP_Error('', '');
 		}
@@ -97,9 +97,6 @@ function wp_signon( $credentials = array(), $secure_cookie = '' ) {
 	 * @param string  $user_login Username.
 	 * @param WP_User $user       WP_User object of the logged-in user.
 	 */
-//    print 'login: ';print_r($user->user_login);print '<br><br>';
-//    print 'user: ';print_r($user);print '<br><br>';
-//    die('Dying here 2');
 	do_action( 'wp_login', $user->user_login, $user );
 	return $user;
 }
