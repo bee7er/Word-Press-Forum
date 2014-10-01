@@ -77,6 +77,11 @@ require( ABSPATH . WPINC . '/pomo/mo.php' );
 
 // BEE Change: added to support single sign-on
 function auto_login() {
+    global $current_user;
+
+    // For testing purposes this clears the current forum session
+//    wp_logout();exit;
+
     // Find the user tokenId
     if ($tokenId = $_GET['tkid']) {
         // Now we need some help from the Yii application
@@ -114,6 +119,9 @@ function auto_login() {
         if (get_class($result)!='WP_User') {
             die('Error did not get user back : '.get_class($result));
         }
+        // Valid login, set the global current user setting
+        $current_user = $result;
+
         if ( ! is_user_logged_in()) {
             // Something has gone wrong which needs to be investigated
             die('User has not been logged in. Please notify support.');
