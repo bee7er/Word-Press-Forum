@@ -35,13 +35,13 @@
 
 	</li><!-- .bbp-body -->
 
-	<li class="bbp-footer">
-
-		<div class="tr">
-			<p class="td colspan4">&nbsp;</p>
-		</div><!-- .tr -->
-
-	</li><!-- .bbp-footer -->
+<!--	<li class="bbp-footer">-->
+<!---->
+<!--		<div class="tr">-->
+<!--			<p class="td colspan4">&nbsp;</p>-->
+<!--		</div>-->
+<!---->
+<!--	</li>-->
 
 </ul><!-- .forums-directory -->
 
