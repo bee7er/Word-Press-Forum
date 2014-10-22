@@ -118,17 +118,17 @@ if ( $user->exists() ) {
 $comment_type = '';
 
 if ( get_option('require_name_email') && !$user->exists() ) {
-    // BEE Changed: To provide a link to go back
+    // BEE Change: To provide a link to go back
 	if ( 6 > strlen($comment_author_email) || '' == $comment_author )
 		wp_die( __('<strong>ERROR</strong>: please fill the required fields (name, email). Click here to <a href="javascript: window.location.replace(document.referrer);">continue</a>.') );
 	elseif ( !is_email($comment_author_email)) {
-        // BEE Changed: To provide a link to go back
+        // BEE Change: To provide a link to go back
         wp_die(__('<strong>ERROR</strong>: please enter a valid email address. Click here to <a href="javascript: window.location.replace(document.referrer);">continue</a>.'));
     }
 }
 
 if ( '' == $comment_content ) {
-    // BEE Changed: To provide a link to go back}
+    // BEE Change: To provide a link to go back}
     wp_die(__('<strong>ERROR</strong>: please type a comment. Click here to <a href="javascript: window.location.replace(document.referrer);">continue</a>.'));
 }
 
