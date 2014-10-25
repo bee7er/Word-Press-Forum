@@ -18,6 +18,7 @@ if (post_password_required()) {
 	return;
 }
 
+/* BEE Change: Remove all of this as not needed
 if (have_comments()){
 	ob_start();
 	printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), THEME_NS ), number_format_i18n( get_comments_number() ), '<em>' . get_the_title() . '</em>' );
@@ -79,3 +80,4 @@ if ('open' == $post->comment_status) {
 <?php 
 	theme_post_wrapper(array('content' => ob_get_clean(), 'id' => 'respond'));
 }
+!!!!!!!!!!!!!!!! */
