@@ -107,12 +107,13 @@ function auto_login() {
         }
         $result = wp_signon(array('user_login' => $forumUser->email, 'user_password' => Yii::app()->params['forumUserPassword'], 'remember' => false));
         if (get_class($result)=='WP_Error') {
-//            die('Error logging in : '.print_r($user->get_error_messages(), true));
+//            die('Error logging in : '.print_r($result->get_error_messages(), true));
             // Add new forum user and sign on
             $displayName = (trim($forumUser->first) . ' ' . trim($forumUser->last));
             $wpdb->insert($wpdb->users, array('user_login' => $forumUser->email, 'user_pass' => Yii::app()->params['forumUserPasswordEncrypted'], 'user_email' => $forumUser->email, 'display_name' => $displayName, 'user_nicename' => $displayName));
             $result = wp_signon(array('user_login' => $forumUser->email, 'user_password' => Yii::app()->params['forumUserPassword'], 'remember' => false));
             if (get_class($result)=='WP_Error') {
+//                die('Error logging in : '.print_r($result->get_error_messages(), true));
                 die('Failed to add new forum user. Please notify support.');
             }
         }
